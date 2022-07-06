@@ -3,11 +3,25 @@ class Counter extends Component {
   state = {
     count: 0,
   };
+
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  handleReset = () => {
+    this.setState({ count: 0 });
+  };
+
   render() {
     return (
       <div>
         <span className={this.getBadgesClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-default">Increment</button>
+        <button onClick={this.handleIncrement} className="btn btn-default">
+          Increment
+        </button>
+        <button onClick={this.handleReset} className="btn btn-danger m-5">
+          Reset
+        </button>
       </div>
     );
   }
